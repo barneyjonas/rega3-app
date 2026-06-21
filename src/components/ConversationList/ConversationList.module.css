@@ -1,0 +1,88 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 14px 8px;
+  flex-shrink: 0;
+}
+
+.logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.wordmark {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.5px;
+}
+
+.editBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-md);
+  color: var(--text2);
+  transition: background var(--transition), color var(--transition);
+}
+
+.editBtn:hover {
+  background: var(--surface3);
+  color: var(--text);
+}
+
+.list {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.empty {
+  padding: 32px 16px;
+  text-align: center;
+  color: var(--text3);
+  font-size: 13px;
+}
+
+.bottomNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 5px 4px 8px;
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.navBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 6px 12px;
+  border-radius: var(--radius-md);
+  color: var(--text3);
+  font-size: 10px;
+  transition: color var(--transition), background var(--transition);
+  min-width: 64px;
+}
+
+.navBtn:hover {
+  color: var(--text2);
+  background: var(--surface2);
+}
+
+.navBtn.navActive {
+  color: var(--accent);
+}

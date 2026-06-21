@@ -1,0 +1,32 @@
+{
+  "appId": "com.rega.app",
+  "productName": "רגע",
+  "directories": {
+    "buildResources": "resources",
+    "output": "dist"
+  },
+  "files": [
+    "out/**/*",
+    "!node_modules"
+  ],
+  "extraMetadata": {
+    "main": "out/main/index.js"
+  },
+  "win": {
+    "target": ["nsis"],
+    "icon": "src/assets/logo-512.png"
+  },
+  "mac": {
+    "target": ["dmg"],
+    "icon": "src/assets/logo-512.png"
+  },
+  "linux": {
+    "target": ["AppImage"],
+    "icon": "src/assets/logo-512.png"
+  },
+  "nsis": {
+    "oneClick": false,
+    "perMachine": false,
+    "allowToChangeInstallationDirectory": true
+  }
+}

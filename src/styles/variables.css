@@ -1,0 +1,29 @@
+:root {
+  --bg:            #161616;
+  --surface:       #202020;
+  --surface2:      #2a2a2a;
+  --surface3:      #333333;
+  --border:        rgba(255, 255, 255, 0.06);
+  --text:          #ececec;
+  --text2:         #8e8e8e;
+  --text3:         #555555;
+  --accent:        #3d7af5;
+  --accent-hover:  #2d68e8;
+  --bubble-me:     #1d4ed8;
+  --bubble-me-end: #1e40af;
+  --bubble-other:  #2a2a2a;
+  --green:         #4ade80;
+  --green-glow:    rgba(74, 222, 128, 0.10);
+  --purple-dots:   #7c5cff;
+  --shadow-sm:     0 1px 3px rgba(0,0,0,0.35);
+  --shadow-md:     0 4px 16px rgba(0,0,0,0.4);
+
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+
+  --radius-sm:   6px;
+  --radius-md:   12px;
+  --radius-lg:   18px;
+  --radius-full: 9999px;
+
+  --transition: 140ms ease;
+}

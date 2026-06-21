@@ -1,0 +1,89 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 32px 0 24px;
+}
+
+.logoText {
+  font-size: 52px;
+  font-weight: 100;
+  letter-spacing: 6px;
+  color: var(--text);
+}
+
+.dots {
+  display: flex;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--purple-dots);
+  animation: bounceDot 1.4s ease infinite;
+}
+
+.tagline {
+  font-size: 14px;
+  color: var(--text2);
+  text-align: center;
+  margin-top: 8px;
+}
+
+.version {
+  font-size: 12px;
+  color: var(--text3);
+}
+
+.faqTitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text2);
+}
+
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.faqItem {
+  background: var(--surface2);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.faqQ {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  font-size: 14px;
+  color: var(--text);
+  text-align: right;
+  gap: 12px;
+}
+
+.faqQ:hover {
+  background: var(--surface3);
+}
+
+.faqA {
+  padding: 0 16px 14px;
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.6;
+  animation: fadeIn 150ms ease;
+}

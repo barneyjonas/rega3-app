@@ -1,0 +1,149 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  backdrop-filter: blur(6px);
+  animation: fadeIn 200ms ease;
+}
+
+.modal {
+  background: var(--surface);
+  border-radius: 24px;
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 28px 24px 24px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+  animation: slideUp 220ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+
+.ending {
+  opacity: 0;
+  transform: scale(0.92);
+}
+
+.videoPlaceholder {
+  width: 100%;
+  height: 140px;
+  background: #0a0a0a;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: -8px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  position: relative;
+}
+
+.videoPulse {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(61, 122, 245, 0.15);
+  animation: pulse 2s ease infinite;
+}
+
+.videoLabel {
+  font-size: 11px;
+  color: var(--text3);
+  position: absolute;
+  bottom: 8px;
+}
+
+.identity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.name {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.status {
+  min-height: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.timer {
+  font-size: 14px;
+  color: var(--green);
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+}
+
+.endedLabel {
+  font-size: 13px;
+  color: var(--text3);
+}
+
+.controls {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  justify-content: center;
+}
+
+.controlBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  justify-content: center;
+  transition: background var(--transition), opacity var(--transition);
+}
+
+.controlBtn:hover {
+  background: var(--surface3);
+}
+
+.controlBtnActive {
+  background: var(--surface3);
+  border-color: rgba(255,255,255,0.12);
+}
+
+.endBtn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #dc2626;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 150ms ease, transform 100ms ease;
+}
+
+.endBtn:hover {
+  background: #b91c1c;
+  transform: scale(1.05);
+}
+
+.endBtn:active {
+  transform: scale(0.95);
+}
+
+.endBtnDisabled {
+  opacity: 0.5;
+  pointer-events: none;
+}

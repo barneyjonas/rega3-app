@@ -1,0 +1,109 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.row {
+  padding: 12px 16px;
+  background: var(--surface2);
+  border-radius: var(--radius-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.visRow {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 16px;
+  background: var(--surface2);
+  border-radius: var(--radius-md);
+}
+
+.visLabel {
+  font-size: 13px;
+  color: var(--text2);
+}
+
+.visBtns {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.visBtn {
+  padding: 5px 14px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  color: var(--text2);
+  background: var(--surface3);
+  border: 1px solid transparent;
+  transition: all var(--transition);
+}
+
+.visBtn:hover {
+  color: var(--text);
+}
+
+.visBtn.visBtnActive {
+  background: rgba(58, 118, 240, 0.15);
+  border-color: rgba(58, 118, 240, 0.4);
+  color: var(--accent);
+}
+
+.notifOpts {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.notifOpt {
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  background: var(--surface3);
+  border: 1px solid transparent;
+  text-align: right;
+  transition: all var(--transition);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.notifOpt:hover {
+  border-color: var(--border);
+}
+
+.notifOptActive {
+  background: rgba(58, 118, 240, 0.12);
+  border-color: rgba(58, 118, 240, 0.4);
+}
+
+.notifOptLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.notifOptActive .notifOptLabel {
+  color: var(--accent);
+}
+
+.notifOptDesc {
+  font-size: 11px;
+  color: var(--text3);
+  direction: rtl;
+}

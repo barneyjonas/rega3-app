@@ -1,0 +1,57 @@
+.wrapper {
+  display: flex;
+  justify-content: flex-start;
+  padding: 2px 14px;
+  animation: slideUp 180ms ease;
+}
+
+.bubble {
+  max-width: 62%;
+  background: linear-gradient(160deg, rgba(29, 78, 216, 0.35) 0%, rgba(30, 64, 175, 0.3) 100%);
+  border: 1.5px dashed rgba(74, 222, 128, 0.45);
+  border-radius: var(--radius-lg) var(--radius-sm) var(--radius-lg) var(--radius-lg);
+  padding: 7px 11px 14px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.text {
+  font-size: 14px;
+  color: rgba(236, 236, 236, 0.65);
+  line-height: 1.5;
+  word-break: break-word;
+  white-space: pre-wrap;
+  display: block;
+  user-select: text;
+}
+
+.voicePreview {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(236, 236, 236, 0.65);
+  padding: 2px 0;
+}
+
+.voiceDuration {
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+.progressBar {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 2.5px;
+  background: rgba(74, 222, 128, 0.08);
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--green);
+  transition: width 100ms linear;
+  border-radius: 0 var(--radius-full) var(--radius-full) 0;
+  box-shadow: 0 0 6px rgba(74, 222, 128, 0.4);
+}

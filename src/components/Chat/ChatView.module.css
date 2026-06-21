@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.messageArea {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 8px 0 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dateSeparator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 24px 6px;
+}
+
+.dateSeparator span {
+  font-size: 11px;
+  color: var(--text3);
+  background: var(--surface2);
+  padding: 3px 11px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.3px;
+}

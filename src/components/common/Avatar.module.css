@@ -1,0 +1,26 @@
+.wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.circle {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  user-select: none;
+}
+
+.onlineDot {
+  position: absolute;
+  bottom: 1px;
+  left: 1px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--green);
+  border: 2px solid var(--surface);
+}

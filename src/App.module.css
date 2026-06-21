@@ -1,0 +1,109 @@
+.app {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.sidebar {
+  width: 320px;
+  min-width: 320px;
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--bg);
+  min-width: 0;
+}
+
+.emptyState {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--text3);
+}
+
+.emptyWordmark {
+  font-size: 52px;
+  font-weight: 100;
+  letter-spacing: 6px;
+  opacity: 0.4;
+}
+
+.emptyHint {
+  font-size: 13px;
+  color: var(--text3);
+}
+
+/* Splash screen */
+.splash {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  transition: opacity 0.4s ease;
+}
+
+.splashFade {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.splashRow {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  direction: rtl;
+}
+
+.splashWord {
+  font-size: 52px;
+  font-weight: 300;
+  color: var(--text);
+  letter-spacing: 2px;
+  animation: splashPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes splashPop {
+  from { opacity: 0; transform: scale(0.8); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.splashDots {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  padding-bottom: 12px;
+}
+
+.splashDots span {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: block;
+  animation: ragaDot 1.2s ease infinite;
+}
+
+.splashDots span:nth-child(2) { animation-delay: 0.2s; }
+.splashDots span:nth-child(3) { animation-delay: 0.4s; }
+.splashDots span:nth-child(4) { animation-delay: 0.6s; }
+
+@keyframes ragaDot {
+  0%, 100% { opacity: 0.35; transform: scale(0.75); }
+  50%       { opacity: 1;    transform: scale(1.25); }
+}

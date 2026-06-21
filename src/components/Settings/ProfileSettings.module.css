@@ -1,0 +1,143 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.avatarRow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.avatarWrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.avatarEdit {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--bg);
+  transition: background 150ms ease, transform 100ms ease;
+  cursor: pointer;
+}
+
+.avatarEdit:hover {
+  background: var(--accent-hover);
+  transform: scale(1.1);
+}
+
+.removePhoto {
+  font-size: 12px;
+  color: #ef4444;
+  margin-top: 4px;
+  transition: opacity var(--transition);
+}
+
+.removePhoto:hover {
+  opacity: 0.75;
+}
+
+.colorPicker {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.colorDots {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.colorDot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  transition: transform 120ms ease, border-color 120ms ease;
+  cursor: pointer;
+}
+
+.colorDot:hover {
+  transform: scale(1.15);
+}
+
+.colorDotActive {
+  border-color: #fff;
+  transform: scale(1.15);
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.3);
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fieldLabel {
+  font-size: 12px;
+  color: var(--text2);
+  font-weight: 500;
+}
+
+.input {
+  padding: 10px 14px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  color: var(--text);
+  transition: border-color var(--transition);
+  text-align: right;
+}
+
+.input:focus {
+  border-color: rgba(61, 122, 245, 0.5);
+  background: var(--surface3);
+}
+
+.saveBtn {
+  padding: 10px 20px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 200ms ease, transform 100ms ease;
+}
+
+.saveBtn:hover {
+  background: var(--accent-hover);
+}
+
+.saveBtn:active {
+  transform: scale(0.97);
+}
+
+.saveBtnDone {
+  background: #059669;
+}

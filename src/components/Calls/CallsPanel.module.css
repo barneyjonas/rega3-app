@@ -1,0 +1,99 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--bg);
+}
+
+.header {
+  padding: 20px 20px 12px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  transition: background var(--transition);
+}
+
+.item:hover {
+  background: var(--surface);
+}
+
+.info {
+  flex: 1;
+  min-width: 0;
+}
+
+.name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 3px;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text2);
+  flex-wrap: wrap;
+}
+
+.typeBadge {
+  background: rgba(61, 122, 245, 0.15);
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 20px;
+}
+
+.duration {
+  color: var(--text3);
+  font-variant-numeric: tabular-nums;
+}
+
+.time {
+  color: var(--text3);
+  margin-right: auto;
+}
+
+.actions {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.callBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(61, 122, 245, 0.12);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition), transform 100ms ease;
+}
+
+.callBtn:hover {
+  background: rgba(61, 122, 245, 0.22);
+  transform: scale(1.08);
+}
