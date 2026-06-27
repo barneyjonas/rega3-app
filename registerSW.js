@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/rega3-app/sw.js', { scope: '/rega3-app/' })})}
