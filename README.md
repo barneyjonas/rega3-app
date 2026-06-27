@@ -248,6 +248,56 @@ If you want a mobile version, the correct approach is PWA (deploy the browser bu
 
 ---
 
+## Animations — how they work
+
+The app has six named CSS animations defined in `src/styles/global.css`, plus a React component that spawns DOM elements for the particle burst.
+
+### Merge animations (triggered when 2+ messages merge into one)
+
+**`MergeParticles` component** (`src/components/Chat/MergeParticles.tsx`)
+
+When messages merge, this component is mounted. It imperatively creates 10–18 `<div>` elements, appends them to a fullscreen fixed overlay (`z-index: 9999`), and lets CSS animate them. Each particle:
+- Is a colored circle (2.5–5px diameter)
+- Is placed at the center of the merged bubble using `getBoundingClientRect()`
+- Has a random direction and distance (30–85px) stored as `--tx` / `--ty` CSS custom properties
+- Uses the `mergeParticle` keyframe: starts at center, flies outward, fades to scale 0
+- Has a random delay (0–60ms) so particles don't all fire at once
+- Colors: `#7c5cff` (purple), `#4ade80` (green), `#3a76f0` (blue), `#ffffff` (white), `#f472b6` (pink)
+
+The whole burst lasts ~440ms. After 500ms, `onDone()` is called, the component unmounts, and all particle divs are removed.
+
+```css
+@keyframes mergeParticle {
+  0%   { opacity: 1; transform: translate(calc(-50%), calc(-50%)) scale(1); }
+  70%  { opacity: 0.7; transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(0.7); }
+  100% { opacity: 0; transform: translate(calc(-50% + var(--tx) * 1.3), calc(-50% + var(--ty) * 1.3)) scale(0); }
+}
+```
+
+**`mergeBubblePop`** — applied to the merged message bubble itself. It bounces: scale 0.85 → 1.06 → 1.0. Makes the bubble feel like it "landed" after absorbing the other messages.
+
+**`mergeGlow`** — a purple box-shadow (`rgba(124, 92, 255, 0.45)`) pulses on and fades off the merged bubble over ~300ms. Gives a brief glow effect on the absorbing bubble.
+
+### Other animations
+
+**`bounceDot`** — the three dots in `DebouncePill` (the countdown timer that shows while a message is pending). Each dot bounces up 6px with staggered delay, creating a "typing..." feel.
+
+**`fadeIn`** — new messages appear with a 3px upward slide and opacity fade. Applied to message bubbles on mount.
+
+**`slideUp`** — similar to `fadeIn` but 6px travel. Used for modals and panels appearing.
+
+**`pulse`** — opacity oscillates 1.0 → 0.4 → 1.0. Used for pending/loading states.
+
+### Accessibility
+
+All three merge animations (`mergeParticle`, `mergeBubblePop`, `mergeGlow`) are overridden to no-ops under `@media (prefers-reduced-motion: reduce)`. The particle burst still fires and cleans up, but particles just disappear instantly with no movement.
+
+### Important for the mobile/PWA version
+
+`MergeParticles` uses `document.createElement` and `getBoundingClientRect()` directly — this is standard DOM API, works in any browser. No Electron dependency. The `mergeParticle` keyframe uses CSS custom properties (`--tx`, `--ty`) set inline on each element — make sure you don't strip inline styles or CSS variables in your build. If you use a CSS purger, whitelist `mergeParticle`, `mergeBubblePop`, and `mergeGlow`.
+
+---
+
 ## What's in this repo vs what's not
 
 | Path | In repo? | Why |
