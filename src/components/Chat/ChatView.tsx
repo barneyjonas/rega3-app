@@ -18,6 +18,7 @@ import styles from './ChatView.module.css'
 
 interface Props {
   conversationId: string
+  onBack?: () => void
 }
 
 interface MessageGroup {
@@ -26,7 +27,7 @@ interface MessageGroup {
   date: string
 }
 
-export function ChatView({ conversationId }: Props) {
+export function ChatView({ conversationId, onBack }: Props) {
   const { conversations, updateConversation } = useConversationsStore()
   const { pendingMessages, debounceEndTime, lastMerge, clearLastMerge } = useMessagesStore()
   const { settings } = useSettingsStore()
@@ -120,7 +121,7 @@ export function ChatView({ conversationId }: Props) {
           onDone={() => { setShowParticles(false); clearLastMerge() }}
         />
       )}
-      <ChatHeader conversation={conversation} />
+      <ChatHeader conversation={conversation} onBack={onBack} />
 
       {endTime !== null && (
         <DebouncePill

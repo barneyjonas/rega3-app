@@ -54,7 +54,7 @@ const directionColor: Record<FakeCall['direction'], string> = {
   missed: '#ef4444'
 }
 
-export function CallsPanel() {
+export function CallsPanel({ onBack }: { onBack?: () => void }) {
   const { conversations } = useConversationsStore()
   const calls = buildFakeCalls(conversations)
   const [activeCall, setActiveCall] = useState<{ conv: Conversation; type: 'audio' | 'video' } | null>(null)
@@ -62,6 +62,13 @@ export function CallsPanel() {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
+        {onBack && (
+          <button className={styles.backBtn} onClick={onBack} aria-label="חזרה">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
+        )}
         <h2 className={styles.title}>שיחות קוליות</h2>
       </div>
 

@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "electron-vite dev",
     "dev:browser": "vite --config vite.browser.config.ts",
+    "build:pwa": "vite build --config vite.browser.config.ts",
     "build": "electron-vite build",
     "preview": "electron-vite preview",
     "package": "npm run build && electron-builder",

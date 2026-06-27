@@ -97,3 +97,20 @@
   background: rgba(61, 122, 245, 0.22);
   transform: scale(1.08);
 }
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: var(--text2);
+  flex-shrink: 0;
+  transition: background var(--transition), color var(--transition);
+}
+
+.backBtn:hover {
+  background: var(--surface3);
+  color: var(--text);
+}

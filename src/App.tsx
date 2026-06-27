@@ -36,10 +36,15 @@ class ErrorBoundary extends Component<{ children: React.ReactNode }, { error: st
   }
 }
 
+function isMobileViewport() {
+  return window.innerWidth < 768
+}
+
 export default function App() {
   const [splash, setSplash] = useState(true)
   const [splashFading, setSplashFading] = useState(false)
   const [activePanel, setActivePanel] = useState<ActivePanel>('chats')
+  const [mobileView, setMobileView] = useState<'list' | 'chat'>('list')
   const { setConversations, activeConversationId, setActiveConversation } =
     useConversationsStore()
   const { loadSettings } = useSettingsStore()
@@ -76,28 +81,43 @@ export default function App() {
     return () => window.removeEventListener('keydown', handler)
   }, [activePanel, setActiveConversation])
 
+  const handleSelectConversation = (id: string) => {
+    setActiveConversation(id)
+    setActivePanel('chats')
+    if (isMobileViewport()) setMobileView('chat')
+  }
+
+  const handlePanelChange = (panel: ActivePanel) => {
+    setActivePanel(panel)
+    if (isMobileViewport() && panel !== 'chats') setMobileView('chat')
+  }
+
+  const handleMobileBack = () => {
+    setMobileView('list')
+    if (activePanel !== 'chats') setActivePanel('chats')
+  }
+
   if (splash) return <SplashScreen fading={splashFading} />
+
+  const mobileClass = mobileView === 'chat' ? styles.mobileChat : styles.mobileList
 
   return (
     <ErrorBoundary>
-    <div className={styles.app}>
+    <div className={`${styles.app} ${mobileClass}`}>
       <div className={styles.sidebar}>
         <ConversationList
           activePanel={activePanel}
-          onPanelChange={setActivePanel}
-          onSelectConversation={(id) => {
-            setActiveConversation(id)
-            setActivePanel('chats')
-          }}
+          onPanelChange={handlePanelChange}
+          onSelectConversation={handleSelectConversation}
         />
       </div>
       <div className={styles.main}>
         {activePanel === 'settings' ? (
-          <SettingsPanel onClose={() => setActivePanel('chats')} />
+          <SettingsPanel onClose={() => { setActivePanel('chats'); if (isMobileViewport()) setMobileView('list') }} />
         ) : activePanel === 'calls' ? (
-          <CallsPanel />
+          <CallsPanel onBack={isMobileViewport() ? handleMobileBack : undefined} />
         ) : activeConversationId ? (
-          <ChatView conversationId={activeConversationId} />
+          <ChatView conversationId={activeConversationId} onBack={isMobileViewport() ? handleMobileBack : undefined} />
         ) : (
           <EmptyState />
         )}

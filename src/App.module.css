@@ -1,6 +1,7 @@
 .app {
   display: flex;
   height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   background: var(--bg);
 }
@@ -22,6 +23,37 @@
   overflow: hidden;
   background: var(--bg);
   min-width: 0;
+}
+
+/* Mobile: single panel view */
+@media (max-width: 767px) {
+  .sidebar {
+    width: 100%;
+    min-width: 0;
+    border-left: none;
+  }
+
+  .main {
+    width: 100%;
+  }
+
+  /* Mobile list view: show sidebar only */
+  .mobileList .sidebar {
+    display: flex;
+  }
+
+  .mobileList .main {
+    display: none;
+  }
+
+  /* Mobile chat view: show main only */
+  .mobileChat .sidebar {
+    display: none;
+  }
+
+  .mobileChat .main {
+    display: flex;
+  }
 }
 
 .emptyState {

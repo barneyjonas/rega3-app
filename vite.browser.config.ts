@@ -5,6 +5,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
   root: resolve(__dirname, 'src'),
+  base: '/rega3-app/',
   publicDir: resolve(__dirname, 'public'),
   plugins: [
     react(),

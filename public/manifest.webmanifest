@@ -2,7 +2,8 @@
   "name": "רגע",
   "short_name": "רגע",
   "description": "אפליקציית הודעות עם עיכוב שליחה",
-  "start_url": "/",
+  "start_url": "/rega3-app/",
+  "scope": "/rega3-app/",
   "display": "standalone",
   "background_color": "#1a1a2e",
   "theme_color": "#3d7af5",
@@ -11,7 +12,7 @@
   "dir": "rtl",
   "icons": [
     {
-      "src": "/logo-512.png",
+      "src": "/rega3-app/logo-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
